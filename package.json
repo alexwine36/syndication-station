@@ -11,8 +11,7 @@
   "scripts": {
     "describe": "npm-scripts-info",
     "build": "run-s clean && run-p build:*",
-    "build:main": "tsc -p tsconfig.json",
-    "build:module": "tsc -p tsconfig.module.json",
+    "build:rollup": "rollup -c",
     "fix": "run-s fix:*",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "test": "run-s build test:*",
@@ -58,6 +57,8 @@
     "@bitjson/npm-scripts-info": "^1.0.0",
     "@bitjson/typedoc": "^0.15.0-0",
     "@istanbuljs/nyc-config-typescript": "^0.1.3",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
     "@types/mailgun-js": "^0.22.3",
     "@types/node": "^12.12.24",
     "@typescript-eslint/eslint-plugin": "^2.19.0",
@@ -77,6 +78,9 @@
     "nyc": "^14.1.1",
     "open-cli": "^5.0.0",
     "prettier": "^1.18.2",
+    "rollup": "^1.31.0",
+    "rollup-plugin-terser": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.25.3",
     "standard-version": "^6.0.1",
     "trash-cli": "^3.0.0",
     "typescript": "^3.5.3"
