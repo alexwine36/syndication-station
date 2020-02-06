@@ -12,6 +12,7 @@
     "describe": "npm-scripts-info",
     "build": "run-s clean && run-p build:*",
     "build:rollup": "rollup -c",
+    "build:test": "tsc -p tsconfig.test.json",
     "fix": "run-s fix:*",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "test": "run-s build test:*",
@@ -89,10 +90,10 @@
   "ava": {
     "failFast": true,
     "files": [
-      "build/main/**/*.spec.js"
+      "build/test/**/*.spec.js"
     ],
     "sources": [
-      "build/main/**/*.js"
+      "build/test/**/*.js"
     ]
   },
   "config": {
