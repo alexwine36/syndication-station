@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/alexwine36/syndication-station/compare/v1.1.0...v2.0.0) (2020-02-06)
+
+
+### Bug Fixes
+
+* **release steps:** changed method of release type ([45e2055](https://github.com/alexwine36/syndication-station/commit/45e2055))
+
+
+### BREAKING CHANGES
+
+* **release steps:** peer dependency required
+
+
+
 ## [1.1.0](https://github.com/alexwine36/syndication-station/compare/v1.0.1...v1.1.0) (2020-02-06)
 
 
