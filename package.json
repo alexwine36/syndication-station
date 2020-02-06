@@ -29,9 +29,10 @@
     "version": "standard-version",
     "reset": "git clean -dfx && git reset --hard && yarn install",
     "clean": "trash build test",
-    "prepare-release": "run-s reset test cov:check doc:html version doc:publish",
-    "release": "git push --follow-tags origin master && yarn publish",
-    "commit": "git cz",
+    "release": "run-p release:*",
+    "release:prepare": "run-s reset test cov:check doc:html version doc:publish",
+    "release:push": "git push --follow-tags origin master && yarn publish",
+    "commit": "git add -A && git cz",
     "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('syndication-station must be installed with Yarn: https://yarnpkg.com/')\""
   },
   "scripts-info": {
@@ -45,7 +46,7 @@
     "doc:json": "Generate API documentation in typedoc JSON format",
     "version": "Bump package.json version, update CHANGELOG.md, tag release",
     "reset": "Delete all untracked files and reset the repo to the last commit",
-    "prepare-release": "One-step: clean, build, test, publish docs, and prep a release"
+    "release": "One-step: clean, build, test, publish docs, and prep a release"
   },
   "engines": {
     "node": ">=8.9"
