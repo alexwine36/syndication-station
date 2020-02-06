@@ -1,6 +1,8 @@
 import typescript from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
+import cjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
 import pkg from './package.json';
 
 export default {
@@ -20,11 +22,19 @@ export default {
     //    name: 'MyPackage' // the global which can be used in a browser
     //   }
   ],
-  external: [...Object.keys(pkg.dependencies || {})],
+  external: [
+    ...Object.keys(pkg.devDependencies || {}),
+    ...Object.keys(pkg.peerDependencies || {})
+  ],
 
   plugins: [
     resolve(),
+    cjs({
+      include: /node_modules/
+    }),
+    json(),
     typescript({
+      module: 'ESNext',
       // eslint-disable-next-line global-require
       typescript: require('typescript')
     }),
